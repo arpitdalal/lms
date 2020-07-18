@@ -1,11 +1,21 @@
 import React from 'react';
-import Input from '../../components/Input/Input';
+import { Input, H1, PrimaryBtn, SecondaryBtn } from '../../components';
 
-const Login = () => {
+import './Login.css';
+
+const Login = ({ setIsAuthenticated }) => {
   return (
-    <div>
-      <Input text='Username' />
+    <div className='login'>
+      <H1 text='Please Login' />
+      <Input text='Username' focus={true} />
       <Input text='Password' />
+      <PrimaryBtn
+        text='Login'
+        onClick={() => {
+          setIsAuthenticated(true);
+        }}
+      />
+      <SecondaryBtn text='Reset' />
     </div>
   );
 };
