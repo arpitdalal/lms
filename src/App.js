@@ -7,10 +7,11 @@ import './App.css';
 
 function App() {
   const [ isAuthenticated, setIsAuthenticated ] = useState(false);
+  const isAuth = isAuthenticated;
 
   return (
     <div className='App'>
-      {isAuthenticated ? (
+      {isAuth ? (
         <AdminHome setIsAuthenticated={setIsAuthenticated} />
       ) : (
         <Login setIsAuthenticated={setIsAuthenticated} />
