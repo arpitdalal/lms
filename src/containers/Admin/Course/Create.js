@@ -28,13 +28,13 @@ const Create = () => {
 
   return (
     <div className='createCourse'>
-      <Input name='courseName' text='Course name' focus={true} onChange={(e) => setCourseObject(e)} />
+      <Input type='text' name='courseName' text='Course name' focus={true} onChange={(e) => setCourseObject(e)} />
       <DropdownWrap title='Category' options={categories} setSelectedValue={setSelectedValue} />
       <DropdownWrap
         title='Sub Category'
         options={subCategories.filter((subCategory) => subCategory.categoryId === categoryId)}
       />
-      <Input name='fee' text='Fees' onChange={(e) => setCourseObject(e)} />
+      <Input type='number' name='fee' text='Fees' onChange={(e) => setCourseObject(e)} />
     </div>
   );
 };
