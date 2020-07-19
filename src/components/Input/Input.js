@@ -1,14 +1,21 @@
 import React from 'react';
 import { InputGroup, FormControl } from '../BootstrapWrap';
 
-const Input = ({ text, focus }) => {
+const Input = ({ text, focus, name, onChange }) => {
   return (
     <React.Fragment>
       <InputGroup className='mb-3'>
         <InputGroup.Prepend>
           <InputGroup.Text id='basic-addon1'>{text}</InputGroup.Text>
         </InputGroup.Prepend>
-        <FormControl placeholder='Username' aria-label='Username' aria-describedby='basic-addon1' autoFocus={focus} />
+        <FormControl
+          name={name}
+          placeholder={text}
+          aria-label={text}
+          aria-describedby='basic-addon1'
+          autoFocus={focus}
+          onChange={onChange}
+        />
       </InputGroup>
     </React.Fragment>
   );
