@@ -1,6 +1,6 @@
 {
   "name": "learning-management-system",
-  "homepage": "https://arpitdalal.github.io/lms"
+  "homepage": "https://arpitdalal.github.io/lms",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
