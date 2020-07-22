@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputGroup, FormControl } from '../BootstrapWrap';
 
-const Input = ({ text, focus, name, onChange, type }) => {
+const Input = ({ text, focus, name, onChange, type, required }) => {
   return (
     <React.Fragment>
       <InputGroup className='mb-3'>
@@ -16,6 +16,7 @@ const Input = ({ text, focus, name, onChange, type }) => {
           aria-describedby='basic-addon1'
           autoFocus={focus}
           onChange={onChange}
+          required={required}
         />
       </InputGroup>
     </React.Fragment>

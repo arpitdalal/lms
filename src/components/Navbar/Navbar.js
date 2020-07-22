@@ -23,7 +23,14 @@ const NavbarWrap = ({ setIsAuthenticated, setCurrentPage }) => {
           <FormControl type='text' placeholder='Search' className='mr-sm-2' />
           <OutlineButton variant='outline-light' text='Search' />
         </Form>
-        <Nav.Link href='#' style={{ color: 'white' }} onClick={() => setIsAuthenticated(false)}>
+        <Nav.Link
+          href='#'
+          style={{ color: 'white' }}
+          onClick={() => {
+            document.cookie = 'loggedin=false';
+            setIsAuthenticated(false);
+          }}
+        >
           Logout
         </Nav.Link>
       </Navbar>
