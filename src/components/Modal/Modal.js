@@ -3,7 +3,7 @@ import { Modal } from '../BootstrapWrap/index';
 import PrimaryBtn from '../Button/PrimaryBtn';
 import SecondaryBtn from '../Button/SecondaryBtn';
 
-const ModalWrap = ({ title, children, lgShow, setLgShow }) => {
+const ModalWrap = ({ title, children, lgShow, setLgShow, onClick }) => {
   return (
     <Modal size='lg' show={lgShow} onHide={() => setLgShow(false)} aria-labelledby='example-modal-sizes-title-lg'>
       <Modal.Header closeButton>
@@ -11,7 +11,7 @@ const ModalWrap = ({ title, children, lgShow, setLgShow }) => {
       </Modal.Header>
       <Modal.Body>{children}</Modal.Body>
       <Modal.Footer>
-        <PrimaryBtn text='Submit' />
+        <PrimaryBtn text='Submit' onClick={onClick} />
         <SecondaryBtn text='Close' />
       </Modal.Footer>
     </Modal>
