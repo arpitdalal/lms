@@ -23,10 +23,6 @@ const Create = ({ setNewCourse }) => {
     { id: 7, categoryId: 3, name: 'MySQL' }
   ];
 
-  const setSelectedValue = (value) => {
-    setCategoryId(value);
-  };
-
   const setCourseObject = (key, value) => {
     setCourse({ ...course, [key]: value });
   };
@@ -44,7 +40,7 @@ const Create = ({ setNewCourse }) => {
         name='category'
         title='Category'
         options={categories}
-        setSelectedValue={setSelectedValue}
+        setSelectedValue={(value) => setCategoryId(value)}
         onChange={(key, value) => setCourseObject(key, value)}
       />
       <DropdownWrap
