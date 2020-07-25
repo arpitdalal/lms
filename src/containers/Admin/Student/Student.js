@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { PrimaryBtn, ModalWrap } from '../../../components';
 import Create from './Create';
+import List from './List';
 
 const Student = () => {
   const [ lgShow, setLgShow ] = useState(false);
   const [ newStudent, setNewStudent ] = useState({});
+  const [ listOfStudents, setListOfStudents ] = useState([]);
 
   const onSubmit = () => {
-    console.log(newStudent);
+    const newListOfStudents = [ ...listOfStudents ];
+    newListOfStudents.push(newStudent);
+    setListOfStudents(newListOfStudents);
   };
 
   return (
@@ -15,7 +19,8 @@ const Student = () => {
       Student <br />
       <br />
       <PrimaryBtn text='Add a student' onClick={() => setLgShow(!lgShow)} />
-      <ModalWrap title='Create New Course' text='Add' onClick={onSubmit} lgShow={lgShow} setLgShow={setLgShow}>
+      <List listOfStudents={listOfStudents} />
+      <ModalWrap title='Add a student' text='Add' onClick={onSubmit} lgShow={lgShow} setLgShow={setLgShow}>
         <Create setNewStudent={setNewStudent} />
       </ModalWrap>
     </div>
