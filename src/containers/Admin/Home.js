@@ -24,9 +24,7 @@ const Home = ({ setIsAuthenticated }) => {
   return (
     <React.Fragment>
       <NavbarWrap setIsAuthenticated={setIsAuthenticated} setCurrentPage={setCurrentPage} />
-      {getPage()
-      // props.children
-      }
+      {getPage()}
     </React.Fragment>
   );
 };

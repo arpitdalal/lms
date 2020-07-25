@@ -5,5 +5,6 @@ import PrimaryBtn from './Button/PrimaryBtn';
 import SecondaryBtn from './Button/SecondaryBtn';
 import ModalWrap from './Modal/Modal';
 import DropdownWrap from './Dropdown/Dropdown';
+import TableWrap from './Table/Table';
 
-export { Input, H1, BtnWrap, PrimaryBtn, SecondaryBtn, ModalWrap, DropdownWrap };
+export { Input, H1, BtnWrap, PrimaryBtn, SecondaryBtn, ModalWrap, DropdownWrap, TableWrap };

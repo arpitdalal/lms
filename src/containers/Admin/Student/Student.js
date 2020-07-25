@@ -15,7 +15,7 @@ const Student = () => {
       Student <br />
       <br />
       <PrimaryBtn text='Add a student' onClick={() => setLgShow(!lgShow)} />
-      <ModalWrap title='Create New Course' onClick={onSubmit} lgShow={lgShow} setLgShow={setLgShow}>
+      <ModalWrap title='Create New Course' text='Add' onClick={onSubmit} lgShow={lgShow} setLgShow={setLgShow}>
         <Create setNewStudent={setNewStudent} />
       </ModalWrap>
     </div>
