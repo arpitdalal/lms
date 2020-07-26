@@ -6,7 +6,20 @@ import Create from './Create';
 const Course = () => {
   const [ lgShow, setLgShow ] = useState(false);
   const [ newCourse, setNewCourse ] = useState({});
-  const [ listOfCourses, setListOfCourses ] = useState([]);
+  const [ listOfCourses, setListOfCourses ] = useState([
+    {
+      courseName: 'React',
+      category: 2,
+      subCategory: 1,
+      fee: 100
+    },
+    {
+      courseName: 'Nodejs',
+      category: 1,
+      subCategory: 3,
+      fee: 50
+    }
+  ]);
 
   const onSubmit = () => {
     const newListOfCourses = [ ...listOfCourses ];
@@ -14,14 +27,19 @@ const Course = () => {
     setListOfCourses(newListOfCourses);
   };
 
+  const editCourse = (course) => {
+    setLgShow(true);
+    setNewCourse(course);
+  };
+
   return (
     <div>
       Course <br />
       <br />
       <PrimaryBtn text='Create New Course' onClick={() => setLgShow(!lgShow)} />
-      <List listOfCourses={listOfCourses} />
+      <List listOfCourses={listOfCourses} onClick={(course) => editCourse(course)} />
       <ModalWrap title='Create New Course' text='Create' onClick={onSubmit} lgShow={lgShow} setLgShow={setLgShow}>
-        <Create setNewCourse={setNewCourse} />
+        <Create newCourse={newCourse} setNewCourse={setNewCourse} />
       </ModalWrap>
     </div>
   );

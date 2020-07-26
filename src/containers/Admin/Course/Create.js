@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Input, DropdownWrap } from '../../../components';
 
-const Create = ({ setNewCourse }) => {
-  const [ categoryId, setCategoryId ] = useState(0);
-  const [ course, setCourse ] = useState({});
+const Create = ({ setNewCourse, newCourse }) => {
+  const [ categoryId, setCategoryId ] = useState(newCourse.category || 0);
+  const [ course, setCourse ] = useState(newCourse);
 
   useEffect(
     () => {
@@ -34,22 +34,31 @@ const Create = ({ setNewCourse }) => {
         name='courseName'
         text='Course name'
         focus={true}
+        value={course.courseName}
         onChange={(e) => setCourseObject(e.target.name, e.target.value)}
       />
       <DropdownWrap
         name='category'
         title='Category'
         options={categories}
+        value={course.category}
         setSelectedValue={(value) => setCategoryId(value)}
         onChange={(key, value) => setCourseObject(key, value)}
       />
       <DropdownWrap
         name='subCategory'
         title='Sub Category'
+        value={course.subCategory}
         options={subCategories.filter((subCategory) => subCategory.categoryId === categoryId)}
         onChange={(key, value) => setCourseObject(key, value)}
       />
-      <Input type='number' name='fee' text='Fees' onChange={(e) => setCourseObject(e.target.name, e.target.value)} />
+      <Input
+        type='number'
+        name='fee'
+        text='Fees'
+        value={course.fee}
+        onChange={(e) => setCourseObject(e.target.name, e.target.value)}
+      />
     </div>
   );
 };

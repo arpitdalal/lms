@@ -1,7 +1,8 @@
 import React from 'react';
 import { Table } from '../BootstrapWrap';
+import PrimaryBtn from '../Button/PrimaryBtn';
 
-const TableWrap = ({ tableHeads, tableRows }) => {
+const TableWrap = ({ tableHeads, tableRows, onClick }) => {
   let id = 1;
 
   return (
@@ -21,7 +22,9 @@ const TableWrap = ({ tableHeads, tableRows }) => {
               {Object.values(tableRow).map((value) => {
                 return <td>{value}</td>;
               })}
-              <td>edit</td>
+              <td>
+                <PrimaryBtn id={tableRow.id} text='Edit' onClick={() => onClick(tableRow)} />
+              </td>
             </tr>
           );
         })}
