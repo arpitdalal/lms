@@ -8,13 +8,13 @@ const Course = () => {
   const [ newCourse, setNewCourse ] = useState({});
   const [ listOfCourses, setListOfCourses ] = useState([
     {
-      courseName: 'React',
+      courseName: 'Nodejs',
       category: 2,
-      subCategory: 1,
+      subCategory: 5,
       fee: 100
     },
     {
-      courseName: 'Nodejs',
+      courseName: 'Reactjs',
       category: 1,
       subCategory: 3,
       fee: 50
