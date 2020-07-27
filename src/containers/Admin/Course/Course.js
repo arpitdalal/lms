@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import List from './List';
 import { PrimaryBtn, ModalWrap } from '../../../components';
 import Create from './Create';
+import List from './List';
 
 const Course = () => {
   const [ lgShow, setLgShow ] = useState(false);
@@ -38,7 +38,7 @@ const Course = () => {
       <br />
       <PrimaryBtn text='Create New Course' onClick={() => setLgShow(!lgShow)} />
       <List listOfCourses={listOfCourses} onClick={(course) => editCourse(course)} />
-      <ModalWrap title='Create New Course' text='Create' onClick={onSubmit} lgShow={lgShow} setLgShow={setLgShow}>
+      <ModalWrap title='Create new course' text='Create' onClick={onSubmit} lgShow={lgShow} setLgShow={setLgShow}>
         <Create newCourse={newCourse} setNewCourse={setNewCourse} />
       </ModalWrap>
     </div>

@@ -6,7 +6,15 @@ import List from './List';
 const Student = () => {
   const [ lgShow, setLgShow ] = useState(false);
   const [ newStudent, setNewStudent ] = useState({});
-  const [ listOfStudents, setListOfStudents ] = useState([]);
+  const [ listOfStudents, setListOfStudents ] = useState([
+    {
+      studentId: 10,
+      studentName: 'John',
+      studentEmail: 'john@gmail.com',
+      courseCategory: 2,
+      courseName: 4
+    }
+  ]);
 
   const onSubmit = () => {
     const newListOfStudents = [ ...listOfStudents ];
@@ -14,14 +22,19 @@ const Student = () => {
     setListOfStudents(newListOfStudents);
   };
 
+  const editStudent = (student) => {
+    setLgShow(true);
+    setNewStudent(student);
+  };
+
   return (
     <div>
       Student <br />
       <br />
       <PrimaryBtn text='Add a student' onClick={() => setLgShow(!lgShow)} />
-      <List listOfStudents={listOfStudents} />
+      <List listOfStudents={listOfStudents} onClick={(student) => editStudent(student)} />
       <ModalWrap title='Add a student' text='Add' onClick={onSubmit} lgShow={lgShow} setLgShow={setLgShow}>
-        <Create setNewStudent={setNewStudent} />
+        <Create newStudent={newStudent} setNewStudent={setNewStudent} />
       </ModalWrap>
     </div>
   );
