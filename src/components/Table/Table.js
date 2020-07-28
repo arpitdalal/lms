@@ -6,7 +6,7 @@ const TableWrap = ({ tableHeads, tableRows, onClick }) => {
   let id = 1;
 
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover style={{ marginTop: '10px' }}>
       <thead>
         <tr>
           {(tableHeads || []).map((tableHead) => {

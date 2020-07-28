@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PrimaryBtn, ModalWrap } from '../../../components';
 import Create from './Create';
 import List from './List';
@@ -15,6 +15,13 @@ const Student = () => {
       courseName: 4
     }
   ]);
+
+  useEffect(
+    () => {
+      setNewStudent({});
+    },
+    [ lgShow, setNewStudent ]
+  );
 
   const onSubmit = () => {
     const newListOfStudents = [ ...listOfStudents ];
