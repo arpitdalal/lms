@@ -3,8 +3,6 @@ import { Table } from '../BootstrapWrap';
 import PrimaryBtn from '../Button/PrimaryBtn';
 
 const TableWrap = ({ tableHeads, tableRows, onClick }) => {
-  let id = 1;
-
   return (
     <Table striped bordered hover style={{ marginTop: '10px' }}>
       <thead>
@@ -18,7 +16,6 @@ const TableWrap = ({ tableHeads, tableRows, onClick }) => {
         {(tableRows || []).map((tableRow) => {
           return (
             <tr>
-              <td>{id++}</td>
               {Object.values(tableRow).map((value) => {
                 return <td>{value}</td>;
               })}

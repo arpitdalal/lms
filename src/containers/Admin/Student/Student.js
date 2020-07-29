@@ -4,10 +4,12 @@ import Create from './Create';
 import List from './List';
 
 const Student = () => {
+  const [ isCreate, setIsCreate ] = useState(true);
   const [ lgShow, setLgShow ] = useState(false);
   const [ newStudent, setNewStudent ] = useState({});
   const [ listOfStudents, setListOfStudents ] = useState([
     {
+      id: 1,
       studentId: 10,
       studentName: 'John',
       studentEmail: 'john@gmail.com',
@@ -23,15 +25,25 @@ const Student = () => {
     [ lgShow, setNewStudent ]
   );
 
-  const onSubmit = () => {
+  const onNewStudent = () => {
     const newListOfStudents = [ ...listOfStudents ];
     newListOfStudents.push(newStudent);
     setListOfStudents(newListOfStudents);
   };
 
+  const onEditStudent = () => {
+    const newStudents = listOfStudents.map((student) => {
+      return student.id === newStudent.id ? newStudent : student;
+    });
+
+    setListOfStudents(newStudents);
+    setIsCreate(true);
+  };
+
   const editStudent = (student) => {
     setLgShow(true);
     setNewStudent(student);
+    setIsCreate(false);
   };
 
   return (
@@ -40,7 +52,13 @@ const Student = () => {
       <br />
       <PrimaryBtn text='Add a student' onClick={() => setLgShow(!lgShow)} />
       <List listOfStudents={listOfStudents} onClick={(student) => editStudent(student)} />
-      <ModalWrap title='Add a student' text='Add' onClick={onSubmit} lgShow={lgShow} setLgShow={setLgShow}>
+      <ModalWrap
+        title='Add a student'
+        text='Add'
+        onClick={isCreate ? onNewStudent : onEditStudent}
+        lgShow={lgShow}
+        setLgShow={setLgShow}
+      >
         <Create newStudent={newStudent} setNewStudent={setNewStudent} />
       </ModalWrap>
     </div>
