@@ -92,6 +92,7 @@ const Course = () => {
         onClick={isCreate ? onNewCourse : onEditCourse}
         lgShow={lgShow}
         setLgShow={setLgShow}
+        setIsCreate={setIsCreate}
       >
         <Create newCourse={newCourse} setNewCourse={setNewCourse} />
       </ModalWrap>

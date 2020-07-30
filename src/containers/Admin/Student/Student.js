@@ -96,6 +96,7 @@ const Student = () => {
         onClick={isCreate ? onNewStudent : onEditStudent}
         lgShow={lgShow}
         setLgShow={setLgShow}
+        setIsCreate={setIsCreate}
       >
         <Create newStudent={newStudent} setNewStudent={setNewStudent} />
       </ModalWrap>
