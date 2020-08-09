@@ -1,4 +1,9 @@
-a {
-    color: white !important;
+nav a {
+    color: white;
     padding: 7px;
+}
+
+nav a:hover {
+    color: white;
+    text-decoration: none;
 }

@@ -7,20 +7,20 @@ const TableWrap = ({ tableHeads, tableRows, onClick }) => {
     <Table striped bordered hover style={{ marginTop: '10px' }}>
       <thead>
         <tr>
-          {(tableHeads || []).map((tableHead) => {
-            return <th>{tableHead}</th>;
+          {(tableHeads || []).map((tableHead, key) => {
+            return <th key={key}>{tableHead}</th>;
           })}
         </tr>
       </thead>
       <tbody>
-        {(tableRows || []).map((tableRow) => {
+        {(tableRows || []).map((tableRow, key) => {
           return (
-            <tr>
-              {Object.values(tableRow).map((value) => {
-                return <td>{value}</td>;
+            <tr key={key}>
+              {Object.values(tableRow).map((value, key) => {
+                return <td key={key}>{value}</td>;
               })}
               <td>
-                <PrimaryBtn id={tableRow.id} text='Edit' onClick={() => onClick(tableRow)} />
+                <PrimaryBtn id={tableRow.id} key={key} text='Edit' onClick={() => onClick(tableRow)} />
               </td>
             </tr>
           );

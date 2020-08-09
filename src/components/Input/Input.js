@@ -12,7 +12,7 @@ const Input = ({ text, focus, name, onChange, type, required, value }) => {
           type={type}
           name={name}
           placeholder={text}
-          value={value}
+          value={value || ''}
           aria-label={text}
           aria-describedby='basic-addon1'
           autoFocus={focus}

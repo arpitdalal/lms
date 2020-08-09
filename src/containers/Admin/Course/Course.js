@@ -1,44 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { PrimaryBtn, ModalWrap, Input } from '../../../components';
 import Create from './Create';
 import List from './List';
+import { addCourse } from '../../../store/actions/course';
 
 const Course = () => {
   const [ isCreate, setIsCreate ] = useState(true);
   const [ lgShow, setLgShow ] = useState(false);
   const [ newCourse, setNewCourse ] = useState({});
-  const [ originalOfListOfCourses, setOriginalOfListOfCourses ] = useState([
-    {
-      id: 1,
-      courseName: 'Nodejs',
-      category: 2,
-      subCategory: 5,
-      fee: 100
+  const [ originalOfListOfCourses, setOriginalOfListOfCourses ] = useState([]);
+  const [ listOfCourses, setListOfCourses ] = useState([]);
+
+  const dispatch = useDispatch();
+  const courseRedux = useSelector((state) => state.course.course);
+
+  useEffect(
+    () => {
+      setListOfCourses(courseRedux);
+      setOriginalOfListOfCourses(courseRedux);
     },
-    {
-      id: 2,
-      courseName: 'Reactjs',
-      category: 1,
-      subCategory: 3,
-      fee: 50
-    }
-  ]);
-  const [ listOfCourses, setListOfCourses ] = useState([
-    {
-      id: 1,
-      courseName: 'Nodejs',
-      category: 2,
-      subCategory: 5,
-      fee: 100
-    },
-    {
-      id: 2,
-      courseName: 'Reactjs',
-      category: 1,
-      subCategory: 3,
-      fee: 50
-    }
-  ]);
+    [ courseRedux ]
+  );
 
   useEffect(
     () => {
@@ -48,9 +31,12 @@ const Course = () => {
   );
 
   const onNewCourse = () => {
-    const newListOfCourses = [ ...listOfCourses ];
-    newListOfCourses.push(newCourse);
-    setListOfCourses(newListOfCourses);
+    // const newListOfCourses = [ ...listOfCourses ];
+    // newListOfCourses.push(newCourse);
+
+    // dispatch({ type: actionTypes.ADD_COURSE, value: newListOfCourses });
+    dispatch(addCourse(newCourse));
+    // setListOfCourses(newListOfCourses);
   };
 
   const onEditCourse = () => {
